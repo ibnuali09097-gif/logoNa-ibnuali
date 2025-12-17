@@ -1,0 +1,439 @@
+/* Reset & Global */
+:root {
+    --primary: #6C63FF;
+    --secondary: #2F2E41;
+    --accent: #FF6584;
+    --white: #ffffff;
+    --glass: rgba(255, 255, 255, 0.1); /* Efek Kaca Transparan */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    color: var(--white); /* Ubah semua tulisan jadi PUTIH agar terbaca di background gelap */
+    line-height: 1.6;
+    
+    /* 1. BACKGROUND GAMBAR UTAMA (Di sini) */
+    background: url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1920&q=80') no-repeat center center fixed;
+    background-size: cover;
+    position: relative;
+}
+
+/* 2. LAPISAN HITAM TRANSPARAN (Overlay) */
+/* Ini agar tulisan terbaca walau backgroundnya gambar ramai */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.75); /* Ubah 0.75 jika ingin lebih terang/gelap */
+    z-index: -1;
+}
+
+.container {
+    width: 90%;
+    max-width: 1100px;
+    margin: auto;
+}
+
+a { text-decoration: none; }
+ul { list-style: none; }
+
+/* Buttons */
+.btn-primary {
+    background: var(--primary);
+    color: var(--white);
+    padding: 12px 30px;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: 0.3s;
+    display: inline-block;
+    border: none;
+}
+.btn-primary:hover { background: #5a52d5; transform: translateY(-2px); box-shadow: 0 0 15px var(--primary); }
+
+.btn-secondary {
+    background: transparent;
+    border: 2px solid var(--white); /* Border putih agar terlihat */
+    color: var(--white);
+    padding: 10px 28px;
+    border-radius: 50px;
+    font-weight: 600;
+    margin-left: 10px;
+    transition: 0.3s;
+}
+.btn-secondary:hover { background: var(--white); color: var(--primary); }
+
+/* Header / Navbar (TRANSPARAN) */
+header {
+    background: transparent; /* Transparan total */
+    padding: 20px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    backdrop-filter: blur(2px); /* Sedikit blur agar estetik */
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Logo Style */
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+}
+.logo img {
+    height: 35px;
+    width: auto;
+    object-fit: contain;
+}
+.logo h1 {
+    font-size: 24px;
+    color: var(--white); /* Tulisan logo jadi putih */
+    margin: 0;
+    line-height: 1;
+}
+.logo span { color: var(--primary); }
+
+nav ul { display: flex; align-items: center; gap: 30px; }
+nav a { color: #ddd; font-weight: 500; transition: 0.3s; }
+nav a:hover { color: var(--primary); }
+.btn-nav { background: var(--primary); color: white !important; padding: 8px 20px; border-radius: 20px; }
+
+/* Hero Section (TRANSPARAN) */
+.hero {
+    padding: 120px 0;
+    text-align: center;
+    background: transparent; /* Tidak ada background */
+}
+.hero h1 { font-size: 3rem; margin-bottom: 20px; line-height: 1.2; text-shadow: 0 2px 10px rgba(0,0,0,0.5); }
+.hero span { color: var(--primary); }
+.hero p { max-width: 600px; margin: 0 auto 30px; color: #ddd; }
+
+/* Features (TRANSPARAN / GLASS EFFECT) */
+.features { padding: 80px 0; background: transparent; }
+.features .container { display: flex; gap: 30px; justify-content: center; flex-wrap: wrap; }
+.feature-box {
+    flex: 1;
+    min-width: 250px;
+    text-align: center;
+    padding: 30px;
+    border-radius: 15px;
+    /* Efek Kaca (Glassmorphism) agar ikon terlihat tapi tetap transparan */
+    background: rgba(255, 255, 255, 0.05); 
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+}
+.feature-box i { font-size: 40px; color: var(--primary); margin-bottom: 20px; }
+
+/* Portfolio (TRANSPARAN) */
+.portfolio { padding: 80px 0; background: transparent; }
+.section-title { text-align: center; margin-bottom: 50px; font-size: 2rem; color: var(--white); }
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+/* --- BAGIAN 1: TATA LETAK GRID & POSISI TENGAH (Kode Baru) --- */
+
+/* 1. Wadah Utama: Mengatur menjadi 3 kolom */
+.portfolio-grid {
+    display: grid;
+    /* Kunci utamanya di sini: repeat(3, 1fr) artinya paksa jadi 3 kolom sama rata */
+    grid-template-columns: repeat(3, 1fr);
+    /* Jarak antar item (opsional, agar tidak terlalu dempet) */
+    gap: 10px;
+    /* Memastikan seluruh grid berada di tengah container induknya */
+    justify-content: center;
+    padding: 20px 0; /* Tambahan padding atas bawah agar rapi */
+}
+
+/* 2. Item Pembungkus Gambar: Mengatur agar gambar di dalamnya ke tengah */
+.portfolio-item {
+    /* Kita gunakan Flexbox di sini khusus untuk menengahkan gambar yang lebarnya cuma 70% */
+    display: flex;
+    justify-content: center; /* Menengahkan secara horizontal */
+    align-items: center;     /* Menengahkan secara vertikal */
+}
+
+
+/* --- BAGIAN 2: GAYA GAMBAR (Kode Asli Anda) --- */
+/* Tidak ada perubahan di sini, kecuali penambahan 'display: block' */
+
+.portfolio-item img {
+    width: 65%; /* Gambar hanya mengambil 70% dari kolomnya */
+    /* Penting: tambahkan height auto agar gambar tidak gepeng */
+    height: auto;
+    /* Tambahan: display block sering membantu menghilangkan celah aneh di bawah gambar */
+    display: block;
+    border-radius: 10px;
+    transition: 0.3s;
+    border: 2px solid rgba(255,255,255,0.1);
+}
+
+.portfolio-item:hover img {
+    transform: scale(1.02);
+    /* Pastikan variabel --primary sudah didefinisikan di CSS Anda */
+    border-color: var(--primary, blue); /* Saya tambah warna cadangan 'blue' jika var error */
+}
+/* Pricing (TRANSPARAN / GLASS) */
+.pricing { padding: 80px 0; }
+.pricing-grid { display: flex; gap: 30px; justify-content: center; flex-wrap: wrap; }
+.price-card {
+    /* Efek Kaca Transparan */
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    
+    padding: 40px;
+    border-radius: 15px;
+    text-align: center;
+    width: 300px;
+    position: relative;
+    color: white;
+}
+.price-card.popular {
+    border: 2px solid var(--primary);
+    background: rgba(108, 99, 255, 0.1); /* Sedikit ungu transparan */
+    transform: scale(1.05);
+    z-index: 2;
+}
+.badge {
+    position: absolute; top: -15px; left: 50%; transform: translateX(-50%);
+    background: var(--accent); color: white; padding: 5px 20px;
+    border-radius: 20px; font-size: 14px; font-weight: bold;
+}
+.price-card .price { font-size: 2rem; font-weight: bold; margin: 20px 0; color: var(--primary); }
+.price-card ul { text-align: left; margin-bottom: 30px; }
+.price-card ul li { margin-bottom: 10px; color: #ddd; }
+.price-card ul li i { margin-right: 10px; color: var(--primary); }
+.price-card ul li.disabled { color: #555; }
+.btn-outline {
+    display: inline-block; padding: 10px 30px; border-radius: 50px;
+    border: 1px solid var(--white); color: var(--white); transition: 0.3s;
+}
+.btn-outline:hover { background: var(--white); color: var(--secondary); }
+
+/* --- BAGIAN ORDER (TIDAK TRANSPARAN / KECUALI INI) --- */
+.order-section { 
+    padding: 80px 0; 
+    background: transparent; /* Sectionnya transparan, TAPI kotaknya solid */
+}
+
+.form-wrapper { 
+    max-width: 700px; 
+    margin: auto; 
+    
+    /* MEMBUAT LATAR BELAKANG PUTIH SOLID */
+    background: #ffffff; 
+    color: #333; /* Tulisan di dalam form jadi hitam lagi agar terbaca */
+    
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.5); /* Bayangan tebal biar menonjol */
+}
+
+.form-wrapper h2 { text-align: center; margin-bottom: 10px; color: var(--secondary); }
+.form-wrapper p { text-align: center; margin-bottom: 40px; opacity: 0.8; color: #666; }
+
+.form-group { margin-bottom: 20px; }
+.form-group label { display: block; margin-bottom: 8px; font-size: 14px; font-weight: bold; }
+
+/* Input field style */
+.form-group input, .form-group select, .form-group textarea {
+    width: 100%; padding: 12px; border-radius: 8px; 
+    border: 2px solid #eee; /* Border abu */
+    font-family: inherit;
+    background: #f9f9f9;
+    color: #333;
+}
+.form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary);
+    background: #fff;
+}
+.full-width { width: 100%; border: none; cursor: pointer; }
+/* ---------------------------------------------------- */
+
+
+/* Footer */
+footer { 
+    background: rgba(0, 0, 0, 0.8); /* Gelap transparan */
+    color: #888; padding: 30px 0; text-align: center; margin-top: 50px; 
+}
+.footer-content { display: flex; justify-content: space-between; align-items: center; }
+.socials a { color: #888; margin-left: 15px; font-size: 20px; transition: 0.3s; }
+.socials a:hover { color: var(--primary); }
+
+/* Floating WhatsApp */
+.float-wa {
+    position: fixed; width: 60px; height: 60px; bottom: 40px; right: 40px;
+    background-color: #25d366; color: #FFF; border-radius: 50px;
+    text-align: center; font-size: 30px; box-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+    z-index: 100; display: flex; align-items: center; justify-content: center;
+    transition: 0.3s;
+}
+.float-wa:hover { transform: scale(1.1); background-color: #20b857; }
+
+/* Mobile Responsive */
+.menu-toggle { display: none; font-size: 24px; cursor: pointer; color: white; }
+@media (max-width: 768px) {
+    .menu-toggle { display: block; }
+    nav ul {
+        display: none; flex-direction: column; position: absolute;
+        top: 70px; left: 0; width: 100%; 
+        background: rgba(0,0,0,0.9); /* Menu HP jadi gelap */
+        padding: 20px; box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+    }
+    nav ul.active { display: flex; }
+    .hero h1 { font-size: 2rem; }
+    .pricing-grid { flex-direction: column; align-items: center; }
+    .logo img { height: 30px; }
+    .form-wrapper { padding: 20px; width: 95%; }
+}
+
+
+/* --- STYLE PROFIL DESAINER (PENGGANTI PORTOFOLIO) --- */
+.profile-section {
+    padding: 100px 0;
+    background: #fff; /* Atau ganti #f9f9f9 jika ingin agak abu */
+}
+
+.profile-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 50px; /* Jarak antara foto dan teks */
+    justify-content: center;
+}
+
+/* Mengatur Foto Profil */
+.profile-image {
+    flex: 1;
+    max-width: 400px;
+    position: relative;
+}
+
+.profile-image img {
+    width: 100%;
+    border-radius: 20px;
+    box-shadow: 20px 20px 0px var(--primary); /* Efek bayangan kotak warna */
+    transition: 0.3s;
+}
+
+.profile-image:hover img {
+    transform: translateY(-5px);
+    box-shadow: 10px 10px 0px var(--primary);
+}
+
+/* Mengatur Teks Profil */
+.profile-content {
+    flex: 1;
+    max-width: 600px;
+}
+
+.profile-content .subtitle {
+    color: var(--primary);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 14px;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.profile-content h2 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    color: var(--secondary);
+    line-height: 1.1;
+}
+
+.profile-content .bio {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 30px;
+    line-height: 1.8;
+}
+
+/* Statistik Kecil (Tahun Pengalaman, dll) */
+.profile-stats {
+    display: flex;
+    gap: 40px;
+    margin-bottom: 30px;
+    border-top: 1px solid #eee;
+    padding-top: 20px;
+}
+
+.stat-item h3 {
+    font-size: 2rem;
+    color: var(--primary);
+    margin-bottom: 5px;
+}
+
+.stat-item p {
+    font-size: 13px;
+    color: #888;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+/* Responsif untuk HP (Gambar di atas, teks di bawah) */
+@media (max-width: 768px) {
+    .profile-wrapper {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .profile-image {
+        max-width: 300px;
+        margin-bottom: 30px;
+    }
+    
+    .profile-image img {
+        box-shadow: 10px 10px 0px var(--primary); /* Bayangan lebih kecil di HP */
+    }
+
+    .profile-stats {
+        justify-content: center;
+        gap: 20px;
+    }
+    
+    .profile-content h2 {
+        font-size: 2.5rem;
+    }
+}
+
+
+/* Di dalam file style.css Anda */
+
+.form-wrapper {
+    /* Atur lebar maksimum yang Anda inginkan */
+    max-width: 600px; 
+    
+    /* Gunakan margin: 0 auto; agar div tetap berada di tengah halaman */
+    margin: 0 auto; 
+    
+    /* Aturan lain yang mungkin sudah ada (misalnya padding, box-shadow, dll.) */
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+}
+
+/* Jika Anda memiliki media query untuk tampilan mobile, pastikan max-width diatur ke 100% */
+@media (max-width: 768px) {
+    .form-wrapper {
+        max-width: 100%; /* Agar form tetap penuh di layar kecil */
+        margin: 0 15px; /* Tambahkan sedikit margin samping */
+        padding: 20px;
+    }
+}

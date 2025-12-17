@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LogoPro - Jasa Desain Logo Profesional</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css"> 
+</head>
+<body>
+
+    <header id="header">
+        <div class="container">
+            <div class="logo">
+                <img src="img/logo.png" alt="Ikon Logo">
+                <h1>Logo<span>NA</span>.</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#home">Beranda</a></li>
+                    <li><a href="#pricing">Harga</a></li>
+                    <li><a href="portofolio.html" class="btn-nav">Portofolio</a></li>
+                </ul>
+            </nav>
+            <div class="menu-toggle"><i class="fas fa-bars"></i></div>
+        </div>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="container hero-content" data-aos="fade-up">
+            <h1>Wujudkan Identitas Brand Anda dengan Logo Profesional di Logo<span>NA</span>.</h1>
+            <p>Desain logo unik, berkarakter, dan 100% orisinil untuk meningkatkan kepercayaan pelanggan bisnis Anda.</p>
+            <div class="hero-buttons">
+                <a href="#order" class="btn-primary">Pesan Logo</a>
+                <a href="#karya" class="btn-secondary">Lihat Karya</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="features" class="features">
+        <div class="container">
+            <div class="feature-box" data-aos="fade-up" data-aos-delay="100">
+                <i class="fas fa-bolt"></i>
+                <h3>Pengerjaan Cepat</h3>
+                <p>Draf pertama siap dalam 48 jam tanpa mengurangi kualitas.</p>
+            </div>
+            <div class="feature-box" data-aos="fade-up" data-aos-delay="200">
+                <i class="fas fa-gem"></i>
+                <h3>Kualitas Premium</h3>
+                <p>Desain vektor resolusi tinggi siap cetak dan digital.</p>
+            </div>
+            <div class="feature-box" data-aos="fade-up" data-aos-delay="300">
+                <i class="fas fa-headset"></i>
+                <h3>Support Prioritas</h3>
+                <p>CS siap membantu revisi dan konsultasi via WhatsApp.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="karya" class="karya">
+        <div class="container">
+            <h2 class="section-title">Karya Terbaru</h2>
+            <div class="portfolio-grid">
+                <div class="portfolio-item" data-aos="zoom-in"><img src="img/logo grid.png" alt="Logo 1"></div>
+                <div class="portfolio-item" data-aos="zoom-in"><img src="img/logona.png" alt="Logo 2"></div>
+                <div class="portfolio-item" data-aos="zoom-in"><img src="img/logo nama.png" alt="Logo 3"></div>
+            </div>
+        </div>
+    </section>
+
+<section id="pricing" class="pricing">
+    <div class="container">
+        <h2 class="section-title">Pilih Tingkatan Anda</h2>
+        <div class="pricing-grid">
+            
+            <div class="price-card" data-aos="flip-left">
+                <h3>Dasar</h3> 
+                <div class="price">Rp 50k</div>
+                <div style="text-decoration: line-through; color: #888; font-size: 16px; margin-top: -10px; margin-bottom: 15px;">
+                    Rp 250k
+                </div>
+                <ul>
+                    <li><i class="fas fa-check"></i> 1 Konsep Logo</li>
+                    <li><i class="fas fa-check"></i> 2x Revisi Minor</li>
+                    <li><i class="fas fa-check"></i> File JPG & PNG (HD)</li>
+                    <li class="disabled"><i class="fas fa-times"></i> File Mentahan (Source)</li>
+                </ul>
+                <a href="#order" class="btn-outline" onclick="pilihPaket('Dasar')">Pilih Dasar</a> 
+            </div>
+
+            <div class="price-card popular" data-aos="flip-left" data-aos-delay="100">
+                <span class="badge">Terlaris</span>
+                <h3>Premium</h3> 
+                <div class="price">Rp 150k</div>
+                <div style="text-decoration: line-through; color: #888; font-size: 16px; margin-top: -10px; margin-bottom: 15px;">
+                    Rp 500k
+                </div>
+                <ul>
+                    <li><i class="fas fa-check"></i> 2 Konsep Logo</li>
+                    <li><i class="fas fa-check"></i> 5x Revisi</li>
+                    <li><i class="fas fa-check"></i> File Lengkap (AI, EPS, PNG)</li>
+                    <li><i class="fas fa-check"></i> Lisensi Komersial</li>
+                </ul>
+                <a href="#order" class="btn-primary" onclick="pilihPaket('Premium')">Pilih Premium</a> 
+            </div>
+
+            <div class="price-card" data-aos="flip-left" data-aos-delay="200">
+                <h3>Pro</h3> 
+                <div class="price">Rp 500k</div>
+                <div style="text-decoration: line-through; color: #888; font-size: 16px; margin-top: -10px; margin-bottom: 15px;">
+                    Rp 1.000k
+                </div>
+                <ul>
+                    <li><i class="fas fa-check"></i> 3 Konsep Premium</li>
+                    <li><i class="fas fa-check"></i> Revisi Sepuasnya</li>
+                    <li><i class="fas fa-check"></i> Brand Guidelines (PDF)</li>
+                    <li><i class="fas fa-check"></i> Prioritas Antrian</li>
+                </ul>
+                <a href="#order" class="btn-outline" onclick="pilihPaket('Pro')">Pilih Pro</a> 
+            </div>
+
+        </div>
+    </div>
+</section>
+
+    <section id="order" class="order-section">
+    <div class="container">
+        <div class="form-wrapper" data-aos="fade-up">
+            <h2>Formulir Pemesanan Logo (Creative Brief)</h2>
+            <p>Isi detail di bawah agar kami memahami visi brand dan pesanan Anda secara lengkap.</p>
+            <form id="logoForm"> 
+                
+                <div class="form-group">
+                    <label>Nama Lengkap Pemesan</label>
+                    <input type="text" id="namaLengkap" placeholder="Masukkan nama Anda" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Alamat (untuk invoice/administrasi)</label>
+                    <textarea id="alamatLengkap" rows="2" placeholder="Masukkan alamat lengkap Anda" required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>Pilihan Tingkatan Harga</label>
+                    <select id="pilihanTingkatan" required> 
+                        <option value="">Pilih paket anda</option>
+                        <option value="Dasar">Tingkatan Dasar (Low)</option>
+                        <option value="Premium">Tingkatan Premium (Terlaris)</option>
+                        <option value="Pro">Tingkatan Pro (Tertinggi)</option>
+                    </select>
+                </div>
+
+                <hr style="border-top: 1px solid #eee; margin: 20px 0;">
+
+                <div class="form-group">
+                    <label>Nama Brand</label>
+                    <input type="text" id="namaBrand" placeholder="Contoh: Kopi Senja" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Konsep Logo yang Diinginkan</label>
+                    <textarea id="konsepLogo" rows="3" placeholder="Jelaskan ide, gaya, atau visual yang Anda harapkan untuk logo Anda (Contoh: logo minimalis dengan ilustrasi biji kopi, warna cokelat dan emas)." required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>Singkatan Nama Brand (Jika Logo berupa Singkatan)</label>
+                    <input type="text" id="singkatanBrand" placeholder="Contoh: KS (dari Kopi Senja) - Kosongkan jika tidak ada">
+                </div>
+                
+                <div class="form-group">
+                    <label>Warna yang diinginkan</label>
+                    <input type="text" id="warna" placeholder="Contoh: Merah & Hitam, atau skema warna Pastel">
+                </div>
+                
+                <hr style="border-top: 1px solid #eee; margin: 20px 0;">
+
+                
+                
+                <button type="submit" class="btn-primary full-width">Kirim Pesanan ke WhatsApp</button>
+            </form>
+        </div>
+    </div>
+</section>
+    
+
+    <footer>
+        <div class="container footer-content">
+            <p>&copy; 2024 LogoPro. All Rights Reserved.</p>
+            <div class="socials">
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-dribbble"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/+6285812801300?text=Halo%20saya%20tertarik%20desain%20logo" class="float-wa" target="_blank">
+        <i class="fab fa-whatsapp my-float"></i>
+    </a>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="script.js"></script> 
+<script>
+    // Inisialisasi AOS (Animate On Scroll)
+    AOS.init({
+        duration: 1000,
+        once: true
+    });
+    
+    // --- FUNGSI UTAMA: MENGISI PILIHAN PAKET SECARA OTOMATIS ---
+
+    // Fungsi untuk otomatis memilih paket di form dan scroll
+    function pilihPaket(jenisPaket) {
+        // 1. Cari elemen dropdown (select) berdasarkan ID 'pilihanTingkatan'
+        var dropdown = document.getElementById("pilihanTingkatan");
+        
+        // 2. Jika elemen ditemukan
+        if (dropdown) {
+            // Ubah nilai dropdown sesuai tombol yang diklik
+            dropdown.value = jenisPaket;
+
+            // 3. (Opsional) Beri efek visual pada form agar user sadar sudah terpilih
+            dropdown.style.transition = "background-color 0.5s";
+            dropdown.style.backgroundColor = "#e0f7fa"; // Warna biru muda
+            
+            // Kembalikan ke warna latar belakang normal setelah 1 detik
+            setTimeout(function() {
+                dropdown.style.backgroundColor = ""; 
+            }, 1000);
+            
+             // Arahkan pandangan ke formulir setelah memilih paket
+            document.getElementById('order').scrollIntoView({ behavior: 'smooth' });
+        }
+    }
+
+
+    // --- FUNGSI WHATSAPP SUBMIT FORM ---
+    
+    // Nomor WhatsApp tujuan (Pastikan formatnya adalah kode negara + nomor tanpa tanda + atau spasi)
+    const waNumber = "6285812801300"; 
+
+    document.getElementById('logoForm').addEventListener('submit', function(event) {
+        event.preventDefault(); // Mencegah submit form secara default (reload halaman)
+
+        // Mengambil nilai dari setiap input
+        const namaLengkap = document.getElementById('namaLengkap').value;
+        const alamatLengkap = document.getElementById('alamatLengkap').value;
+        const pilihanTingkatan = document.getElementById('pilihanTingkatan').value;
+        const namaBrand = document.getElementById('namaBrand').value;
+        const konsepLogo = document.getElementById('konsepLogo').value;
+        // Menggunakan operator OR || untuk memberikan nilai default jika input kosong
+        const singkatanBrand = document.getElementById('singkatanBrand').value || 'Tidak Ada';
+        const warna = document.getElementById('warna').value || 'Tidak Spesifik';
+
+        // Validasi sederhana (jika ada input required yang kosong)
+        if (!namaLengkap || !alamatLengkap || pilihanTingkatan === "" || !namaBrand || !konsepLogo) {
+            alert("Mohon lengkapi semua data yang bertanda wajib diisi (Nama, Alamat, Paket, Nama Brand, Konsep).");
+            return;
+        }
+
+        // Menyusun pesan WhatsApp (gunakan %0A untuk baris baru)
+        const message = 
+            `*ORDER LOGO BARU (Creative Brief)*%0A%0A` +
+            `=================================%0A%0A` +
+            `*A. DATA PEMESAN*%0A` +
+            `Nama Lengkap: ${namaLengkap}%0A` +
+            `Alamat: ${alamatLengkap}%0A` +
+            `Pilihan Paket: *${pilihanTingkatan}*%0A%0A` +
+            `=================================%0A%0A` +
+            `*B. DETAIL LOGO*%0A` +
+            `Nama Brand: ${namaBrand}%0A` +
+            `Singkatan Brand: ${singkatanBrand}%0A` +
+            `Warna yang Diinginkan: ${warna}%0A%0A` +
+            `*Konsep Logo (Brief)*:%0A` +
+            `${konsepLogo}%0A%0A` +
+            `=================================%0A%0A` +
+            `*Mohon tunggu, Admin akan segera memproses pesanan Anda.*`;
+
+
+        // Membuat URL WhatsApp
+        const waURL = `https://wa.me/${waNumber}?text=${encodeURIComponent(message)}`;
+
+        // Mengarahkan ke WhatsApp
+        window.open(waURL, '_blank');
+    });
+
+    // Toggle Menu (jika ada)
+    document.querySelector('.menu-toggle').addEventListener('click', function() {
+        document.querySelector('nav ul').classList.toggle('active');
+    });
+
+</script>
+</body>
+</html>

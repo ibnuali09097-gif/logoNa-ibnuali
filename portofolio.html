@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jasa Desain Logo Mz. Ali | LogoNA</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <style>
+        /* --- CSS UTAMA (TEMA TRANSPARAN / GLASSMORPHISM) --- */
+        
+        :root {
+            --primary: #6C63FF;
+            --white: #ffffff;
+            --glass-bg: rgba(255, 255, 255, 0.1); /* Latar Kaca */
+            --glass-border: 1px solid rgba(255, 255, 255, 0.2);
+            --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--white);
+            line-height: 1.6;
+            
+            /* BACKGROUND GAMBAR FULL PAGE */
+            background: url('https://images.unsplash.com/photo-1550684848-fac1c5b4e853?q=80&w=2070&auto=format&fit=crop') no-repeat center center fixed;
+            background-size: cover;
+            min-height: 100vh;
+        }
+
+        /* OVERLAY HITAM SUPAYA TEKS TERBACA */
+        body::before {
+            content: "";
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.7); /* Gelap 70% */
+            z-index: -1;
+        }
+
+        .container { width: 90%; max-width: 1100px; margin: auto; }
+        a { text-decoration: none; color: white; transition: 0.3s; }
+        ul { list-style: none; }
+
+        /* --- HEADER TRANSPARAN --- */
+        header {
+            padding: 20px 0;
+            position: sticky; top: 0; z-index: 1000;
+            backdrop-filter: blur(5px);
+            border-bottom: var(--glass-border);
+            background: rgba(0,0,0,0.2);
+        }
+        header .container { display: flex; justify-content: space-between; align-items: center; }
+        
+        .logo { display: flex; align-items: center; gap: 10px; }
+        .logo img { height: 40px; }
+        .logo h1 { font-size: 24px; color: white; margin: 0; line-height: 1; }
+        .logo span { color: var(--primary); }
+
+        nav ul { display: flex; align-items: center; gap: 30px; }
+        nav a:hover { color: var(--primary); }
+        .btn-nav { background: var(--primary); padding: 8px 20px; border-radius: 20px; }
+
+        /* --- PROFIL SECTION (UTAMA) - GLASS STYLE --- */
+        .profile-section { padding: 120px 0 80px; }
+        
+        .profile-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: var(--glass-border);
+            border-radius: 20px;
+            padding: 50px;
+            box-shadow: var(--glass-shadow);
+            
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .profile-image { flex: 1; max-width: 350px; }
+        .profile-image img {
+            width: 100%; 
+            border-radius: 20px; 
+            border: 3px solid rgba(255,255,255,0.2);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .profile-content { flex: 1.5; }
+        .subtitle { color: var(--primary); font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 10px; display: block; }
+        .profile-content h2 { font-size: 3rem; margin-bottom: 20px; line-height: 1.1; }
+        .profile-content .bio { color: #ddd; margin-bottom: 30px; text-align: justify; }
+
+        .profile-stats { display: flex; gap: 30px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; margin-bottom: 30px; }
+        .stat-item h3 { font-size: 2rem; color: var(--primary); margin: 0; }
+        .stat-item p { font-size: 12px; color: #aaa; text-transform: uppercase; }
+
+        .btn-primary { 
+            background: var(--primary); color: white; padding: 12px 30px; border-radius: 50px; font-weight: 600; border: none; cursor: pointer; display: inline-block;
+        }
+        .btn-primary:hover { background: #5a52d5; transform: translateY(-3px); box-shadow: 0 0 15px var(--primary); }
+
+        /* --- PRICING SECTION - GLASS CARDS --- */
+        .pricing { padding: 80px 0; }
+        .section-title { text-align: center; font-size: 2rem; margin-bottom: 50px; }
+        .pricing-grid { display: flex; gap: 30px; justify-content: center; flex-wrap: wrap; }
+        
+        .price-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            border: var(--glass-border);
+            border-radius: 15px;
+            padding: 40px;
+            width: 300px;
+            text-align: center;
+            position: relative;
+        }
+        .price-card.popular { background: rgba(108, 99, 255, 0.15); border: 2px solid var(--primary); transform: scale(1.05); z-index: 2; }
+        .price { font-size: 2rem; font-weight: bold; margin: 20px 0; color: var(--primary); }
+        .price-card ul { text-align: left; margin-bottom: 30px; }
+        .price-card ul li { margin-bottom: 10px; color: #ddd; display: flex; align-items: center; gap: 10px; }
+        .price-card ul li i { color: var(--primary); }
+        .btn-outline { border: 1px solid white; padding: 10px 30px; border-radius: 50px; display: inline-block; }
+        .btn-outline:hover { background: white; color: black; }
+
+        /* --- ORDER FORM - GLASS STYLE --- */
+        .order-section { padding: 80px 0; padding-bottom: 150px; }
+        .form-wrapper {
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            border: var(--glass-border);
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 700px;
+            margin: auto;
+        }
+        .form-wrapper h2, .form-wrapper p { text-align: center; }
+        .form-group { margin-bottom: 20px; }
+        .form-group label { display: block; margin-bottom: 8px; font-size: 14px; }
+        
+        input, select, textarea {
+            width: 100%; padding: 12px; border-radius: 8px; border: none;
+            background: rgba(255,255,255,0.1); /* Input transparan */
+            color: white; border: 1px solid rgba(255,255,255,0.1);
+        }
+        input:focus, select:focus, textarea:focus { outline: none; border-color: var(--primary); background: rgba(255,255,255,0.2); }
+        option { background: #333; color: white; } /* Agar dropdown terbaca */
+
+        /* --- FOOTER & WA --- */
+        footer { text-align: center; padding: 30px; color: #aaa; background: rgba(0,0,0,0.5); }
+        .float-wa {
+            position: fixed; bottom: 30px; right: 30px; width: 60px; height: 60px;
+            background: #25d366; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            font-size: 30px; z-index: 99; box-shadow: 0 0 20px rgba(37, 211, 102, 0.4);
+        }
+
+        /* --- RESPONSIF HP --- */
+        .menu-toggle { display: none; font-size: 24px; cursor: pointer; }
+        @media (max-width: 768px) {
+            .menu-toggle { display: block; }
+            nav ul { display: none; flex-direction: column; position: absolute; top: 70px; left: 0; width: 100%; background: rgba(0,0,0,0.9); padding: 20px; }
+            nav ul.active { display: flex; }
+            
+            .profile-card { flex-direction: column; text-align: center; padding: 30px; }
+            .profile-image { margin-bottom: 20px; max-width: 250px; }
+            .profile-stats { justify-content: center; }
+            .pricing-grid { flex-direction: column; align-items: center; }
+        }
+    </style>
+</head>
+<body>
+
+ 
+
+    <header id="header">
+        <div class="container">
+          <div class="logo">
+    <img src="img/logo.png" alt="Ikon Logo">
+    <h1>Logo<span>NA</span>.</h1>
+</div>
+            <nav>
+                <ul>
+                  
+                    <li><a href="index.html" class="btn-nav">Kembali</a></li>
+                </ul>
+            </nav>
+            <div class="menu-toggle"><i class="fas fa-bars"></i></div>
+        </div>
+    </header>
+
+    <section id="portfolio" class="profile-section">
+        <div class="container">
+            <div class="profile-card" data-aos="fade-up">
+                <div class="profile-image">
+                    <img src="img/profil.jpg" alt="Mz. Ali" onerror="this.src='https://via.placeholder.com/400x400/333/fff?text=Foto+Profil'">
+                </div>
+
+                <div class="profile-content">
+                    <span class="subtitle">Professional Logo Designer</span>
+                    <h2>Mz. Ali</h2>
+                    <p class="bio">
+                        Selamat datang di LogoNA. Saya adalah spesialis desain identitas brand yang berfokus pada kesederhanaan dan makna. 
+                        Saya membantu bisnis Anda tampil beda dan profesional melalui desain logo yang orisinil dan berkarakter. 
+                        Mari wujudkan visi brand Anda bersama saya.
+                    </p>
+                    
+                    <div class="profile-stats">
+                        <div class="stat-item">
+                            <h3>5+</h3>
+                            <p>Tahun Pengalaman</p>
+                        </div>
+                        <div class="stat-item">
+                            <h3>300+</h3>
+                            <p>Proyek Selesai</p>
+                        </div>
+                        <div class="stat-item">
+                            <h3>4.9</h3>
+                            <p>Rating Klien</p>
+                        </div>
+                    </div>
+
+                    <a href="index.html" class="btn-primary">
+                        Mulai Pesan <i class="fas fa-arrow-down"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+   
+
+    <footer>
+        <p>&copy; 2024 LogoNA. All Rights Reserved.</p>
+    </footer>
+
+    <a href="https://wa.me/6285812801300" class="float-wa" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="script.js"></script>
+    <script>
+        // Script Internal untuk Menu Mobile (Jika script.js terpisah bermasalah)
+        AOS.init({ duration: 1000, once: true });
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navMenu = document.querySelector('nav ul');
+        if(menuToggle){
+            menuToggle.addEventListener('click', () => { navMenu.classList.toggle('active'); });
+        }
+    </script>
+</body>
+</html>
